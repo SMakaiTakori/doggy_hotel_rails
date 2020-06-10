@@ -8,8 +8,9 @@ class Dog < ApplicationRecord
     validates :password, presence: true
     validates :password, confirmation: { case_sensitive: true }
 
-
     has_secure_password
 
+    
+    
 
 end

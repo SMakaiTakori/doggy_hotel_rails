@@ -10,9 +10,18 @@ class SessionsController < ApplicationController
         if @dog && @dog.authenticate(password: params[:dog][:password])
             session[:user_id] = @dog.id
             redirect to dog_path(@dog)
+        else
+            redirect_to root_path
         end
-
     end
+
+    def destroy
+            session.delete :user_id
+            redirect_to root_path
+    end    
 
 
 end
+
+
+
