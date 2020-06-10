@@ -6,7 +6,7 @@ class CreateDogs < ActiveRecord::Migration[6.0]
       t.string :breed
       t.string :owner
       t.string :phone
-      t.sting :biography
+      t.string :biography
       t.string :password_digest
 
       t.timestamps
