@@ -12,6 +12,7 @@ class DogsController < ApplicationController
         else
             render :new
         end
+    end
         
     def show
         @dog = Dog.find_by(id: params[:id])
@@ -21,7 +22,6 @@ class DogsController < ApplicationController
         end
     end    
     
-    end
 
     private 
 
