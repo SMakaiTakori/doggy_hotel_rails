@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/signup' => 'dogs#new'
+  post '/signup' => 'dogs#create'
   
   root 'application#welcome'
   
