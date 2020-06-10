@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   get '/signup' => 'dogs#new'
   post '/signup' => 'dogs#create'
-  
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+
+
   root 'application#welcome'
   
   resources :reservations
