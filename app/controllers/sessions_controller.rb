@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         if @dog && @dog.authenticate(password: params[:dog][:password])
             session[:user_id] = @dog.id
             redirect to dog_path(@dog)
+        end
 
     end
 
