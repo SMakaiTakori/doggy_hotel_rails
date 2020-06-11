@@ -9,13 +9,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div>
+ <%#=if logged_in%>
+  <div>     
   <span><%= button_to "Logout", logout_path %></span>
-  <span><button><%= link_to "Browse", hotels_path %></button></span>
+  <span><button><%= link_to "Browse", hotels_path %></button></span>  
   </div>
+  <%#end%>
 
 
-  <body style= "text-align:center;">
+  <body>
     <%= yield %>
   </body>
 </html>
