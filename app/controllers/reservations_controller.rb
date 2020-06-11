@@ -9,21 +9,24 @@ class ReservationsController < ApplicationController
     def new         
         # byebug
         @reservation= Reservation.new  
-        @reservation.hotel_id= params[:hotel_id]        
+        @reservation.hotel_id= params[:hotel_id]
+        @reservation.dog_id = session[:user_id]  
+        @dog = Dog.find_by(id: session[:user_id])
     end
 
-    def create
+    def create       
         @reservation = Reservation.new(reservation_params)
-        @dog = Dog.find_by(id: session[:user_id])
-        
-        if @reservation.save
-            redirect_to dog_reservation_path
+        @dog = Dog.find_by(id: session[:user_id])  
+           if @reservation.save           
+            redirect_to dog_reservation_path(@dog, @reservation)
         else
             render :new
-        end
+        end        
     end
 
     def show
+        @reservation = Reservation.find_by(id: params[:id])
+        @dog = Dog.find_by(id:session[:user_id])
     end
 
     def edit
@@ -35,7 +38,17 @@ class ReservationsController < ApplicationController
     private
      
     def reservation_params
-        params.require(:reservation).permit(:date, :time, :hotel_id, :user_id)
+        params.require(:reservation).permit(:date, :time, :hotel_id,:dog_id,
+            dog_attributes: [ 
+                :id,             
+                :name,
+                :age,                
+                :email,
+                :breed,
+                :owner,
+                :phone,
+                :biography
+            ])
     end
 
 end

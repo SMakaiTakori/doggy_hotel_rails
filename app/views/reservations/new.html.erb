@@ -1,4 +1,3 @@
-<h1> Booking for Hotel Name</h1>
 
 <h2>We just need a few details to book your reservation, please fill out the form below.</h2>
 
@@ -10,28 +9,30 @@
    <%= f.text_field :time %><br>
 
    <%= f.hidden_field :hotel_id %><br>
+    <%= f.hidden_field :dog_id %><br>
 
-   <%= f.fields_for :dogs do |d| %> 
-      <%= d.label :name  %>
-      <%= d.text_field :name %>
+   <%= f.fields_for @dog do |d| %>   
 
-       <%= d.label :age  %>
-      <%= d.text_field :age %>
+      <%= d.label :name %>
+      <%= d.text_field :name %><br>
 
-       <%= d.label :email  %>
-      <%= d.text_field :email %>
+      <%= d.label :age %>
+      <%= d.text_field :age %><br>
+
+      <%= d.label :email %>
+      <%= d.text_field :email %><br>
 
       <%= d.label :breed %>
-      <%= d.text_field :breed%>
+      <%= d.text_field :breed%><br>
 
       <%= d.label "Owner's Name"%>
-      <%= d.text_field :owner %>
+      <%= d.text_field :owner %><br>
 
-      <%= d.label :phone  %>
-      <%= d.text_field :phone %>
+      <%= d.label :phone %>
+      <%= d.text_field :phone %><br>
 
-      <%= d.label :biography  %>
-      <%= d.text_field :biography %>
+      <%= d.label :biography %>
+      <%= d.text_field :biography %><br>
    <%end%>
    
    <%= f.submit "Book Now!"  %>
