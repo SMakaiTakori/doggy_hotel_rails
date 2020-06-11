@@ -9,12 +9,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
- <%#=if logged_in%>
-  <div>     
-  <span><%= button_to "Logout", logout_path %></span>
-  <span><button><%= link_to "Browse", hotels_path %></button></span>  
-  </div>
-  <%#end%>
+ <% if logged_in && current_user %>
+ <ul class= "nav"> 
+  <button><%= link_to "Browse Hotels", hotels_path %></button>
+  <%= button_to "Logout", logout_path %>  
+  <%end%>
 
 
   <body>

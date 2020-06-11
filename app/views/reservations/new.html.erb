@@ -1,0 +1,15 @@
+<h1> Booking for Hotel Name</h1>
+
+<h2>We just need a few details to book your reservation, please fill out the form below.</h2>
+
+<%= form_for @reservation do |f| %>
+   <%= f.label :date  %>
+   <%= f.text_field :date %><br>
+
+   <%= f.label :time %>
+   <%= f.text_field :time %><br>
+
+
+   
+   <%= f.submit "Book Now!"  %>
+<% end %>
