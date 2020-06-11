@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DoggyAirbnbRails</title>
+    <title>Doggy Airbnb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <div style= "display:inline;">
+  <span><%= button_to "Logout", logout_path %></span>
+  <span><button><%= link_to "Browse", hotels_path %></button></span>
+  </div>
+
 
   <body>
     <%= yield %>

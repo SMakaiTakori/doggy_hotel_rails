@@ -11,6 +11,6 @@ class Dog < ApplicationRecord
     has_secure_password
 
     
-    
+    # accepts_nested_attributes_for :reservations
 
 end
