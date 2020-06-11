@@ -6,7 +6,7 @@ class HotelsController < ApplicationController
     end
 
     def new
-        @hotel = Hotel.find_by(id: params[:hotel_id])
+        @hotel = Hotel.new
     end
 
 

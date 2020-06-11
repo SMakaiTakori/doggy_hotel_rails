@@ -2,11 +2,11 @@
 
 <ul>
 <%= @hotels.each do |hotel| %>
- <%byebug %>
+ 
   <li> <%= hotel.name %> </li>
   <li> <%= hotel.location %></li>
   <li> <%= hotel.activities %></li>
-  <%= link_to "Reserve your stay today", new_hotel_reservation_path(@hotel) %>
+  <%= link_to "Reserve your stay today", new_hotel_reservation_path(hotel) %>
 
 <%end%>
 </ul>

@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
         
         @reservation= Reservation.new  
         @reservation.hotel_id= params[:hotel][:id]
-        byebug
+        
     end
 
     def create
