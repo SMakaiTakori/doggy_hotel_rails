@@ -6,7 +6,7 @@ class HotelsController < ApplicationController
     end
 
     def new
-        @hotel = Hotel.new
+        # @hotel = Hotel.new
     end
 
 

@@ -6,16 +6,16 @@ class ReservationsController < ApplicationController
         @reservation= Reservation.all
     end
 
-    def new 
-        
+    def new         
+        # byebug
         @reservation= Reservation.new  
-        @reservation.hotel_id= params[:hotel][:id]
-        
+        @reservation.hotel_id= params[:hotel_id]        
     end
 
     def create
         @reservation = Reservation.new(reservation_params)
-        @dog = Dog.find_by(id: params[:dog][:user_id])
+        @dog = Dog.find_by(id: session[:user_id])
+        
         if @reservation.save
             redirect_to dog_reservation_path
         else
@@ -32,5 +32,10 @@ class ReservationsController < ApplicationController
     def destroy
     end    
 
+    private
+     
+    def reservation_params
+        params.require(:reservation).permit(:date, :time, :hotel_id, :user_id)
+    end
 
 end

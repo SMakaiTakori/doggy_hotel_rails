@@ -1,15 +1,14 @@
-<h1>Browse through our hotel database and choose which one you would like to reserve.</h1>
 
 <ul>
 <%= @hotels.each do |hotel| %>
  
-  <li> <%= hotel.name %> </li>
-  <li> <%= hotel.location %></li>
-  <li> <%= hotel.activities %></li>
-  <%= link_to "Reserve your stay today", new_hotel_reservation_path(hotel) %>
+  <span><strong> Hotel name: <%= hotel.name %></strong> </span>
+  <p> Location: <%= hotel.location %></p>
+  <p> Amenities and Activities:<%= hotel.activities %></p>
+  <%= link_to "Reserve your stay today", new_hotel_reservation_path(hotel) %><br><br>
 
 <%end%>
-</ul>
+</ul><br>
 
 
 
