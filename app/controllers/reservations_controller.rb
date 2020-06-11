@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
     end
 
     def new 
-        @reservation= Reservation.new     
+        @reservation= Reservation.new  
+        @reservation.hotel_id= params[:hotel_id]
     end
 
     def create

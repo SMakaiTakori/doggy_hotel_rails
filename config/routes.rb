@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   resources :hotels 
   resources :dogs
 
-  resources :dogs do
+  resources :hotels do
     resources :reservations
   end
 
-  resources :dogs do
-    resources :hotels
-  end
+  # resources :dogs do
+  #   resources :hotels
+  # end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
