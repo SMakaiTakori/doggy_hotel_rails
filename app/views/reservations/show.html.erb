@@ -8,14 +8,15 @@
     Time:  <%= @reservation.time %><br>
     Date: <%= @reservation.date %><br>
 
-    Fun activities and amenities: <%= @reservation.hotel.activities %><br>
+    Fun things to do: <%= @reservation.hotel.activities %><br>
 
     <h3>Your Profile Details</h3><br>
-
-    Owner's name: <%= @reservation.dog.owner %><br>
+    
     Email: <%= @reservation.dog.email %><br>
-    Phone:  <%= @reservation.dog.phone %><br>
+    Owner's name: <%= @reservation.dog.owner %><br>
+    Phone: <%= @reservation.dog.phone %><br>
     Bio: <%= @reservation.dog.biography %><br>
 
-
 </ul>
+
+ <%= link_to 'Edit Reservation', edit_dog_reservation_path %>

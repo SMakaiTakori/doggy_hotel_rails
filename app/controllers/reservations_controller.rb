@@ -32,6 +32,21 @@ class ReservationsController < ApplicationController
     end
 
     def edit
+        @reservation = Reservation.find_by(id: params[:id]) 
+        @dog = Dog.find_by(id: session[:user_id])       
+    end
+
+    def update
+        @reservation = Reservation.find_by(id: params[:id])
+        @dog = Dog.find_by(id: session[:user_id])        
+        @dog.update(dog_params[:dog]) 
+        @reservation.dog = @dog
+
+        if @reservation.update(reservation_params)
+            redirect_to dog_reservation_path(@reservation.dog, @reservation)
+        else
+            render :edit
+        end
     end
 
     def destroy

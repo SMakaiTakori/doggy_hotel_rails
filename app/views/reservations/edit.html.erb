@@ -1,0 +1,38 @@
+<h1>Edit Your Reservation Below</h1>
+
+<%= form_for @reservation do |f| %>
+   <%= f.label :date  %>
+   <%= f.text_field :date %><br>
+
+   <%= f.label :time %>
+   <%= f.text_field :time %><br>
+
+   <%= f.hidden_field :hotel_id %><br>
+    
+    
+   <%= f.fields_for @dog do |d| %> 
+
+      <%= d.label :name %>
+      <%= d.text_field :name %><br>
+
+      <%= d.label :age %>
+      <%= d.text_field :age %><br>
+
+      <%= d.label :email %>
+      <%= d.text_field :email %><br>
+
+      <%= d.label :breed %>
+      <%= d.text_field :breed%><br>
+
+      <%= d.label "Owner's Name"%>
+      <%= d.text_field :owner %><br>
+
+      <%= d.label :phone %>
+      <%= d.text_field :phone %><br>
+
+      <%= d.label :biography %>
+      <%= d.text_field :biography %><br>
+   <%end%>
+   
+   <%= f.submit "Edit Now!"  %>
+<% end %>
