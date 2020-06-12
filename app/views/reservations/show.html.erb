@@ -1,3 +1,21 @@
-<h1>You're All Set!</h1>
-<h2>You will find your reservation details below</h2>
+<h1>You're All Set, <%= @reservation.dog.name%>!</h1>
+<h2>You will find your reservation details below for <span style= "text-decoration:underline;"><%= @reservation.hotel.name%></span> </h2>
 
+<ul>
+    <h3>Hotel Details</h3>
+
+    Location: <%= @reservation.hotel.location %><br>
+    Time:  <%= @reservation.time %><br>
+    Date: <%= @reservation.date %><br>
+
+    Fun activities and amenities: <%= @reservation.hotel.activities %><br>
+
+    <h3>Your Profile Details</h3><br>
+
+    Owner's name: <%= @reservation.dog.owner %><br>
+    Email: <%= @reservation.dog.email %><br>
+    Phone:  <%= @reservation.dog.phone %><br>
+    Bio: <%= @reservation.dog.biography %><br>
+
+
+</ul>

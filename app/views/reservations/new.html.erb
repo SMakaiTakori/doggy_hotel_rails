@@ -1,3 +1,5 @@
+<h1>Don't Miss Out on the Pawesome Fun!</h1>
+<h2>Hold your spot with <span style= "text-decoration:underline;"><%= @reservation.hotel.name%></span> </h2>
 
 <h4>We just need a few details to book your reservation, <br>Please fill out the form below.</h4>
 
@@ -10,7 +12,7 @@
 
    <%= f.hidden_field :hotel_id %><br>
     <%= f.hidden_field :dog_id %><br>
-
+    
    <%= f.fields_for @dog do |d| %>   
 
       <%= d.label :name %>
