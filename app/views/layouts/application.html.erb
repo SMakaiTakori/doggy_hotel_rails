@@ -12,7 +12,9 @@
  <% if logged_in && current_user %>
  <ul class= "nav"> 
   <button><%= link_to "Browse Hotels", hotels_path %></button>
-  <%= button_to "Logout", logout_path %>  
+  <%= link_to "My Reservations", dog_reservations_path(@dog) %> 
+  <%= button_to "Logout", logout_path %> 
+
   <%end%>
 
 
