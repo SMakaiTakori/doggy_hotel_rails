@@ -7,8 +7,13 @@ class Dog < ApplicationRecord
     validates :email, presence: true
 
     has_secure_password
-
     
-    # accepts_nested_attributes_for :reservations
+    def self.from_omniauth(auth)
+      where(email: auth.info.email).first_or_initialize do |dog|
+        dog.name = auth.info.name
+        dog.email = auth.info.email
+        dog.password = SecureRandom.hex
+      end
+    end
 
 end

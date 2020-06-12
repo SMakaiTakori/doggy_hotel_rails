@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_033544) do
   create_table "dogs", force: :cascade do |t|
     t.string "name"
     t.integer "age"
-    t.string "email"
     t.string "breed"
     t.string "owner"
     t.string "phone"
@@ -23,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_033544) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    
+    t.string "email"
   end
 
   create_table "hotels", force: :cascade do |t|

@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
 
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
+
   root 'application#welcome'
+  
   
   resources :reservations
   resources :hotels 
