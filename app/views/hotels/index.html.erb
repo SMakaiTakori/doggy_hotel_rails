@@ -5,7 +5,7 @@
   <span><strong> Hotel name: <%= hotel.name %></strong> </span>
   <p> Location: <%= hotel.location %></p>
   <p> Amenities and Activities:<%= hotel.activities %></p>
-  <%= link_to "Reserve your stay today", new_hotel_reservation_path(hotel) %><br><br>
+  <button><%= link_to "Reserve your stay today", new_hotel_reservation_path(hotel) %></button><br><br>
 
 <%end%>
 </ul><br>

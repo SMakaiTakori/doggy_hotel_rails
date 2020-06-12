@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
         # byebug
         @reservation= Reservation.new  
         @reservation.hotel_id= params[:hotel_id]
-        @reservation.dog_id = session[:user_id]  
+        @reservation.dog_id = current_user  
         @dog = Dog.find_by(id: session[:user_id])
     end
 
