@@ -11,9 +11,9 @@
    <%= f.text_field :time %><br>
 
    <%= f.hidden_field :hotel_id %><br>
-    <%= f.hidden_field :dog_id %><br>
     
-   <%= f.fields_for @dog do |d| %>   
+    
+   <%= f.fields_for @dog do |d| %> 
 
       <%= d.label :name %>
       <%= d.text_field :name %><br>
