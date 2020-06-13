@@ -3,6 +3,15 @@
 
 <h4>We just need a few details to book your reservation, <br>Please fill out the form below.</h4>
 
+<% if @reservations.errors.any? %>
+  <ul>
+    <% @reservations.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <%end%>
+  </ul>
+<%end%>
+
+
 <%= form_for @reservation do |f| %>
    <%= f.label :date  %>
    <%= f.text_field :date %><br>

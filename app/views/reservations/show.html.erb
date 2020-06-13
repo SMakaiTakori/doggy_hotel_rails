@@ -19,4 +19,5 @@
 
 </ul>
 
- <%= link_to 'Edit Reservation', edit_dog_reservation_path %>
+ <button><%= link_to 'Edit Reservation', edit_dog_reservation_path %></button><br><br>
+ <%= button_to 'Cancel Reservation', dog_reservation_path, :method => :delete %>

@@ -55,6 +55,12 @@ class ReservationsController < ApplicationController
     end
 
     def destroy
+        @reservation = Reservation.find_by(id: params[:id]) 
+        @dog = Dog.find_by(id: session[:user_id])  
+        @reservation.destroy
+        
+        flash[:alert] = "Your Reservation has been cancelled"
+        redirect_to dog_path(@dog)
     end    
 
     private
