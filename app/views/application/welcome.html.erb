@@ -1,10 +1,10 @@
 <h1> Welcome to Doggy Airbnb</h1>
+<h2>Where the fun begins!</h2> 
 
-<p>If you are a new user please sign up via the signup button or the github signup here</p>
- <%= link_to "Sign Up", signup_path  %> <br>
- 
-
-  If you already created a profile, Log in here!
-  <%= link_to "Log In", login_path  %><br>
+  <p>If you already have a profile, Log in below</p><br>
+  <button><%= link_to "Log In", login_path  %></button><br>
   
-  <%= link_to "Log In with Google", '/auth/google_oauth2' %>
+  <button><%= link_to "Log In with Google", '/auth/google_oauth2' %></button>
+
+  <p>New User? <%= link_to "Sign Up Here", signup_path  %>
+   

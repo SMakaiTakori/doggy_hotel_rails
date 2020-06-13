@@ -4,8 +4,7 @@ class ReservationsController < ApplicationController
 
     def index
         @reservation= Reservation.all
-        @dog = Dog.find_by(id: session[:user_id])
-     
+        @dog = Dog.find_by(id: session[:user_id])     
     end
 
     def new         
