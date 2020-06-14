@@ -1,8 +1,16 @@
+<div style = "background-color:red; color:white; text-transform:capitalize;">
+<% flash.each do |alert, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+  <% end %>
+  </div>
+
 <h1>Welcome <%= @dog.name %></h1>
 
 <h3>We hope you have lots of fun playing, swimming, along with a ton of other activities!</h3>
-<h3>Click here to browse hotels and make a reservation for some old fashioned doggy fun!</h3><br>
+<h3>Start browsing hotels and make a reservation for some doggy fun!</h3><br>
 
 
-
+<button><%= link_to "Browse Hotels", hotels_path %></button><br>
 

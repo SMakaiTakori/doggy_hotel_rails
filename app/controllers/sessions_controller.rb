@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         @dog = Dog.from_omniauth(auth)
         @dog.save
         session[:user_id] = @dog.id
-        redirect_to root_path
+        redirect_to dog_path(@dog)
       end
       
     def create

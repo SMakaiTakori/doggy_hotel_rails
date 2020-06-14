@@ -2,13 +2,10 @@ class ReservationsController < ApplicationController
 
     before_action :logged_in, :current_user
 
-    def index
-        if current_user = reservation.dog
-            @reservation= Reservation.all
-            @dog = Dog.find_by(id: session[:user_id]) 
-        else
-            redirect_to dogs_path(@dog)
-        end
+    def index    
+        @reservation= Reservation.all
+        @dog = Dog.find_by(id: session[:user_id])  
+               
     end
 
     def new         
@@ -22,26 +19,20 @@ class ReservationsController < ApplicationController
         @reservation= Reservation.new(reservation_params)
         @dog = Dog.find_by(id: session[:user_id])        
         @dog.update(dog_params[:dog]) 
-        @reservation.dog = @dog
-       
-        if @reservation.save           
-            redirect_to dog_reservation_path(@reservation.dog, @reservation)
-        else
-            render :new
-        end        
+        @reservation.dog = @dog       
+        @reservation.save    
+
+        redirect_to dog_reservation_path(@reservation.dog, @reservation)
+      
     end
 
     def show
-        if @dog && current_user
             @reservation = Reservation.find_by(id: params[:id])
-            @dog = Dog.find_by(id: session[:user_id])
-        else
-            redirect_to dogs_path
-        end
+            @dog = Dog.find_by(id: session[:user_id])       
     end
 
     def edit
-        if @reservation && current_user 
+        if current_user 
             @reservation = Reservation.find_by(id: params[:id]) 
             @dog = Dog.find_by(id: session[:user_id])  
         else

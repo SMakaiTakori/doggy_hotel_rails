@@ -1,11 +1,11 @@
-<h1>Don't Miss Out on the Pawesome Fun!</h1>
+<h1>Don't Miss Out on the Pawsome Fun!</h1>
 <h2>Hold your spot with <span style= "text-decoration:underline;"><%= @reservation.hotel.name%></span> </h2>
 
 <h4>We just need a few details to book your reservation, <br>Please fill out the form below.</h4>
 
-<% if @reservations.errors.any? %>
+<% if @reservation.errors.any? %>
   <ul>
-    <% @reservations.errors.full_messages.each do |message| %>
+    <% @reservation.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <%end%>
   </ul>

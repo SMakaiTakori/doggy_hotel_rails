@@ -10,12 +10,14 @@
   </head>
 
  <% if logged_in && current_user %>
- <ul class= "nav"> 
-  <button><%= link_to "Browse Hotels", hotels_path %></button><br>
- <%= link_to 'My Reservation', dog_reservations_path(@dog) %>
+ <div style= "float:right; display: inline-block"> 
+  <button><%= link_to "Home", dog_path(@dog) %></button><br>
+ <%= link_to 'My Reservations', dog_reservations_path(@dog) %>
   <%= button_to "Logout", logout_path %> 
 
   <%end%>
+  </div>
+  <hr>
 
 
   <body>

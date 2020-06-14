@@ -1,6 +1,13 @@
 class DogsController < ApplicationController
     
     before_action :logged_in, except: [:new, :create, :welcome]
+    
+
+    def index
+        @dog = Dog.all
+        @reservation = Reservation.all
+    
+    end
 
     def new
         @dog = Dog.new        
@@ -17,10 +24,10 @@ class DogsController < ApplicationController
     end
         
     def show
-        if current_user
+        if current_user 
         @dog = Dog.find_by(id: params[:id])
         end
-        
+
         if !@dog
             redirect_to root_path
         end
