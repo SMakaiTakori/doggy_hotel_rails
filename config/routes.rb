@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
-  root 'application#welcome'
-  
+  root 'application#welcome'  
   
   resources :reservations
   resources :hotels, only: [:index] 

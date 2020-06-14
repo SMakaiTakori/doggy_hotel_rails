@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
     
     before_action :logged_in, except: [:new, :create, :welcome] 
+    before_action :current_user, except: [:new, :create, :welcome] 
 
     def new
         @dog = Dog.new        
@@ -17,22 +18,17 @@ class DogsController < ApplicationController
     end
         
     def show
-        if current_user 
         @dog = Dog.find_by(id: params[:id])
-        end
 
         if !@dog
             redirect_to root_path
         end
-    end    
-    
+    end        
 
     private 
 
     def dog_params
-        params.require(:dog).permit(:name, :age, :email, :breed, :owner, :phone, :biography, :password, :password_confirmation)
-    
+        params.require(:dog).permit(:name, :age, :email, :breed, :owner, :phone, :biography, :password, :password_confirmation)    
     end
-
 
 end

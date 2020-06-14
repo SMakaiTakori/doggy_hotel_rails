@@ -6,16 +6,16 @@
   <% end %>
   </div>
 
-
 <h1> Welcome to Doggy Airbnb</h1>
 <h3>Get ready for some tail wagging fun!</h3> 
 
 <%= image_tag 'doggyairbnb.jpg', style:"height: 250px; width: 250px;"%>
 
-  <p>If you already have a profile, Log in below</p><br>
-  <button><%= link_to "Log In", login_path  %></button><br>
+  <p> If you already have a profile</p> 
+  <p> Please Log in below</p>
   
+  <button><%= link_to "Log In", login_path  %></button><br>  
   <button><%= link_to "Log In with Google", '/auth/google_oauth2' %></button><br>
 
-  <p>New User? <%= link_to "Sign Up Here", signup_path  %>
+  <p>New User? <%= link_to "Sign Up Here", signup_path %>
    
