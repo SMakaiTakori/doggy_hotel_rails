@@ -28,12 +28,16 @@ class ReservationsController < ApplicationController
     end
 
     def show
-        @reservation = Reservation.find_by(id: params[:id])
-        @dog = Dog.find_by(id: session[:user_id])
+        if @dog && current_user
+            @reservation = Reservation.find_by(id: params[:id])
+            @dog = Dog.find_by(id: session[:user_id])
+        else
+            redirect_to hotels_path
+        end
     end
 
     def edit
-        if current_user
+        if @reservation && current_user && logged_in
             @reservation = Reservation.find_by(id: params[:id]) 
             @dog = Dog.find_by(id: session[:user_id])  
         else
@@ -58,7 +62,7 @@ class ReservationsController < ApplicationController
         @reservation = Reservation.find_by(id: params[:id]) 
         @dog = Dog.find_by(id: session[:user_id])  
         @reservation.destroy
-        
+
         flash[:alert] = "Your Reservation has been cancelled"
         redirect_to dog_path(@dog)
     end    

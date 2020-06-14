@@ -4,6 +4,13 @@ class SessionsController < ApplicationController
         @dog = Dog.new
     end
 
+    def omniauth
+        @dog = Dog.from_omniauth(auth)
+        @dog.save
+        session[:user_id] = @dog.id
+        redirect_to root_path
+      end
+      
     def create
         @dog = Dog.find_by(email: params[:dog][:email])
         
@@ -13,22 +20,14 @@ class SessionsController < ApplicationController
         else
             redirect_to root_path
         end
-    end
-
-    
+    end    
 
     def destroy   
-        session.delete :user_id
+        if current_user
+            session.delete :user_id
         redirect_to root_path
     end    
 
-    def omniauth
-        @dog = Dog.from_omniauth(auth)
-        @dog.save
-        session[:user_id] = @dog.id
-        redirect_to root_path
-      end
-      
       private
       
       def auth
