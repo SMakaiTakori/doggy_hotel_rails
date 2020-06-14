@@ -13,8 +13,8 @@
     <h3>Hotel Details</h3>
 
     Location: <%= @reservation.hotel.location %><br>
-    Time:  <%= @reservation.time %><br>
-    Date: <%= @reservation.date %><br>
+    Time:  <%= @reservation.time.to_s(:stamp) %><br>
+    Date: <%= @reservation.date.to_s(:stamp) %><br>
 
     Fun things to do: <%= @reservation.hotel.activities %><br>
 
