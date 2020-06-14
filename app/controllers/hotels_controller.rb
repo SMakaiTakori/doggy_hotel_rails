@@ -1,7 +1,7 @@
 class HotelsController < ApplicationController
 
     def index
-        @hotels = Hotel.all.alphebetize      
+        @hotels = Hotel.all.alphabetize      
     end
 
 end

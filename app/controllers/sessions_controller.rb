@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         @dog.save
         session[:user_id] = @dog.id
         redirect_to dog_path(@dog)
-      end
+    end
       
     def create
         @dog = Dog.find_by(email: params[:dog][:email])
