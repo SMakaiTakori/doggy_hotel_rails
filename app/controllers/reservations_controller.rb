@@ -3,8 +3,12 @@ class ReservationsController < ApplicationController
     before_action :logged_in, :current_user
 
     def index
-        @reservation= Reservation.all
-        @dog = Dog.find_by(id: session[:user_id])     
+        if current_user = reservation.dog
+            @reservation= Reservation.all
+            @dog = Dog.find_by(id: session[:user_id]) 
+        else
+            redirect_to dogs_path(@dog)
+        end
     end
 
     def new         
@@ -32,12 +36,12 @@ class ReservationsController < ApplicationController
             @reservation = Reservation.find_by(id: params[:id])
             @dog = Dog.find_by(id: session[:user_id])
         else
-            redirect_to hotels_path
+            redirect_to dogs_path
         end
     end
 
     def edit
-        if @reservation && current_user && logged_in
+        if @reservation && current_user 
             @reservation = Reservation.find_by(id: params[:id]) 
             @dog = Dog.find_by(id: session[:user_id])  
         else
@@ -60,11 +64,12 @@ class ReservationsController < ApplicationController
 
     def destroy
         @reservation = Reservation.find_by(id: params[:id]) 
-        @dog = Dog.find_by(id: session[:user_id])  
-        @reservation.destroy
-
+        @dog = Dog.find_by(id: session[:user_id]) 
+        
+        if @reservation.destroy
         flash[:alert] = "Your Reservation has been cancelled"
         redirect_to dog_path(@dog)
+        end
     end    
 
     private

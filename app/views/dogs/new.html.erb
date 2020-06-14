@@ -1,11 +1,11 @@
+<div style = "background-color:red; color:white; text-transform:capitalize;">
 <% if @dog.errors.any? %>
   <ul>
     <% @dog.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <%end%>
   </ul>
-<%end%>
-
+<%end%></div>
 
 <h1>Create your doggy profile below!</h1>
 

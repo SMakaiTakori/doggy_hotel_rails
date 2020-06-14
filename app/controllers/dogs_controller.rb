@@ -17,7 +17,9 @@ class DogsController < ApplicationController
     end
         
     def show
+        if current_user
         @dog = Dog.find_by(id: params[:id])
+        end
         
         if !@dog
             redirect_to root_path

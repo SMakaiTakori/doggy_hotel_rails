@@ -1,3 +1,10 @@
+<% if logged_in && current_user %>
+ <ul class= "nav"> 
+ <%= link_to 'My Reservation', dog_reservations_path(@dog) %>
+  <%= button_to "Logout", logout_path %> 
+<%end%>
+
+
 <h1>Hotel Stay Options</h1>
 <hr>
 <h2>Choose a hotel to book with below: </h2>

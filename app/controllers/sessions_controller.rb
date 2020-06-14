@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @dog.id
             redirect_to dog_path(@dog)
         else
+            flash[:alert] = "User not found."
             redirect_to root_path
         end
     end    
@@ -25,7 +26,10 @@ class SessionsController < ApplicationController
     def destroy   
         if current_user
             session.delete :user_id
-        redirect_to root_path
+            redirect_to root_path
+        else
+            redirect_to dog_path(@dog)
+        end
     end    
 
       private
