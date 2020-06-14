@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     def show
             @reservation = Reservation.find_by(id: params[:id])
             @dog = Dog.find_by(id: session[:user_id])     
-            flash[:alert] = "Your Reservation is Confirmed"  
+            flash[:alert] = "Your Reservation has been confirmed."  
     end
 
     def edit
