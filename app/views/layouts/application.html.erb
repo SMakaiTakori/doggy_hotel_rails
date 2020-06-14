@@ -10,9 +10,9 @@
   </head>
 
  <% if logged_in && current_user %>
- <div style= "float:right; display: inline-block"> 
+ <div style= " display: inline"> 
   <button><%= link_to "Home", dog_path(@dog) %></button><br>
- <%= link_to 'My Reservations', dog_reservations_path(@dog) %>
+ <button><%= link_to 'My Reservations', dog_reservations_path(@dog) %></button>
   <%= button_to "Logout", logout_path %> 
 
   <%end%>
