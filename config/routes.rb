@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   
   
   resources :reservations
-  resources :hotels 
-  resources :dogs
+  resources :hotels, only: [:index] 
+  resources :dogs, only: [:new, :create, :show]
 
   resources :hotels do
-    resources :reservations
+    resources :reservations 
   end
 
   resources :dogs do

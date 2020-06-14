@@ -1,11 +1,6 @@
 class DogsController < ApplicationController
     
-    before_action :logged_in, except: [:new, :create, :welcome]    
-
-    def index
-        @dog = Dog.all
-        @reservation = Reservation.all    
-    end
+    before_action :logged_in, except: [:new, :create, :welcome] 
 
     def new
         @dog = Dog.new        
