@@ -32,11 +32,11 @@ class SessionsController < ApplicationController
         end
     end    
 
-      private
+    private
       
-      def auth
+    def auth
         request.env['omniauth.auth']
-      end
+    end
   
 end
 
