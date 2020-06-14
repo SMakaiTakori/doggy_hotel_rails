@@ -4,8 +4,7 @@ class ReservationsController < ApplicationController
 
     def index    
         @reservation= Reservation.all
-        @dog = Dog.find_by(id: session[:user_id])  
-               
+        @dog = Dog.find_by(id: session[:user_id])                 
     end
 
     def new         
@@ -20,30 +19,26 @@ class ReservationsController < ApplicationController
         @dog = Dog.find_by(id: session[:user_id])        
         @dog.update(dog_params[:dog]) 
         @reservation.dog = @dog       
-        @reservation.save    
+        @reservation.save  
 
-        redirect_to dog_reservation_path(@reservation.dog, @reservation)
-      
+        redirect_to dog_reservation_path(@reservation.dog, @reservation)      
     end
 
     def show
-            @reservation = Reservation.find_by(id: params[:id])
-            @dog = Dog.find_by(id: session[:user_id])     
-            flash[:alert] = "Your Reservation has been confirmed."  
+        find_by_id            
+        flash[:alert] = "Your Reservation has been confirmed."  
     end
 
     def edit
         if current_user 
-            @reservation = Reservation.find_by(id: params[:id]) 
-            @dog = Dog.find_by(id: session[:user_id])  
+            find_by_id
         else
             render :index
         end
     end
 
     def update
-        @reservation = Reservation.find_by(id: params[:id])
-        @dog = Dog.find_by(id: session[:user_id])        
+        find_by_id
         @dog.update(dog_params[:dog]) 
         @reservation.dog = @dog
 
@@ -55,13 +50,11 @@ class ReservationsController < ApplicationController
     end
 
     def destroy
-        @reservation = Reservation.find_by(id: params[:id]) 
-        @dog = Dog.find_by(id: session[:user_id]) 
-        
-        if @reservation.destroy
+        find_by_id  
+        @reservation.destroy
         flash[:alert] = "Your Reservation has been cancelled"
+
         redirect_to dog_path(@dog)
-        end
     end    
 
     private
@@ -81,5 +74,10 @@ class ReservationsController < ApplicationController
         ]
     )
     end
+
+    def find_by_id
+        @reservation = Reservation.find_by(id: params[:id])
+        @dog = Dog.find_by(id: session[:user_id])     
+    end 
 
 end
