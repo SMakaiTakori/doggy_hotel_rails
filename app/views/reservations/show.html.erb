@@ -13,11 +13,11 @@
     <h3>Hotel Details</h3>
 
     Location: <%= @reservation.hotel.location %><br>
-    Date: <%= @reservation.date.strftime("%D") %><br>
-    Time:  <%= @reservation.time.strftime('%a %b %d %H:%M:%S %Z %Y') %><br>
+    Date: <%= @reservation.date.to_s %><br>
+    Time:  <%= @reservation.time.to_s%>%
     
 
-    Fun things to do: <%= @reservation.hotel.activities %><br>
+    Fun things to do: <%=@reservation.hotel.activities %><br>
 
     <h3>Your Profile Details</h3><br>
     

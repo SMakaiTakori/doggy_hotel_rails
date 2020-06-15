@@ -20,7 +20,24 @@ Hotel.create({
 
 Hotel.create({
     name: 'The Wags Club', 
-    location: 'California, USA',
+    location: 'Georgia, USA',
     activities: 'Swimming, Doggy Dances with music, pet concierge services'    
+    })  
+
+Hotel.create({
+    name: 'Red Dog Atlanta', 
+    location: 'Georgia, USA',
+    activities: 'Grooming and Spa services, Dog PJ and Ugly Sweater contests, Dog Tacos'    
+    })
+    
+Hotel.create({
+    name: 'We Love Wags', 
+    location: 'Seattle, USA',
+    activities: 'Dog park with pool, Doggy socials, Doggy treats stations'    
     })    
+    
+    
+    
+    
+
     

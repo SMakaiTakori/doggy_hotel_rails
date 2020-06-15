@@ -5,4 +5,5 @@ class Reservation < ApplicationRecord
 
     accepts_nested_attributes_for :dog
 
+
 end
