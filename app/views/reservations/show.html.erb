@@ -14,7 +14,7 @@
 
     Location: <%= @reservation.hotel.location %><br>
     Date: <%= @reservation.date.to_s %><br>
-    Time:  <%= @reservation.time.to_s%>%
+    Time:  <%= @reservation.time.to_s%><br>
     
 
     Fun things to do: <%=@reservation.hotel.activities %><br>
@@ -22,6 +22,7 @@
     <h3>Your Profile Details</h3><br>
     
     Email: <%= @reservation.dog.email %><br>
+    Age: <%= @reservation.dog.age %><br>
     Owner's name: <%= @reservation.dog.owner %><br>
     Phone: <%= @reservation.dog.phone %><br>
     Bio: <%= @reservation.dog.biography %><br>
