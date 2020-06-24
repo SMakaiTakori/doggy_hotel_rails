@@ -1,4 +1,12 @@
 
+<%= form_tag("/hotels", method: "get") do  %>
+  <%= label_tag :search, "Search For:"  %>
+  <%= text_field_tag :search%>
+  <%= submit_tag("Search")%>
+
+<%end%>
+
+
 <ul>
 <% @hotels.each do |hotel| %>
  

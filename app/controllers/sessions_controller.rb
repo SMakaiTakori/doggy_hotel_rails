@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
     end
       
     def create
-        @dog = Dog.find_by(email: params[:dog][:email])        
+        @dog = Dog.find_by(email: params[:dog][:email])  
+              
         if @dog && @dog.authenticate(params[:dog][:password])
             session[:user_id] = @dog.id
             redirect_to dog_path(@dog)

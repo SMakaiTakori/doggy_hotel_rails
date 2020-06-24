@@ -5,4 +5,9 @@ class Hotel < ApplicationRecord
 
     scope :alphabetize, -> { order(name: :asc) }
 
+        
+    def self.search(params)
+     where("name like :params", params: "%#{params}%")
+    end
+
 end
