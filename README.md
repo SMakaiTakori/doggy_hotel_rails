@@ -1,4 +1,4 @@
-## Welcome to the the Doggy Airbnb App!
+## Welcome to the the Doggy Hotel App!
 
 This is a Doggy Airbnb App made with Rails that allows users to book reservations with the doggy hotel of their choice.
 In order to use this app, clone it, run "bundle install" to install the dependencies, and run rails db:seed for the hotels to be created. 
